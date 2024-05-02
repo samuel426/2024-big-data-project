@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Big-Data-Project
 
@@ -18,4 +19,7 @@
 
 /usr/local/bin/chromedriver-linux64/chromedriver
 
+=======
+/usr/local/bin/chromedriver-linux64/chromedriver
+>>>>>>> master
 
