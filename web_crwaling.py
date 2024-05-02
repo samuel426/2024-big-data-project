@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
-import csv  # CSV 모듈 추가
+import csv  
 
 # 웹 드라이버 설정
 chrome_driver_path = "/usr/local/bin/chromedriver-linux64/chromedriver"  # 크롬 드라이버의 경로를 지정

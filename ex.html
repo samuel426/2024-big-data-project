@@ -1,22 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>VCmap</title>
-    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+    <title>카카오 지도 및 검색 기능</title>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7a7708aeae52144e08d7c752726c6d30"></script>
+    <style>
+        /* 페이지 스타일링 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* 상단 네비게이션 바 스타일링 */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: right;
+        }
+
+        .navbar .user-info {
+            float: left;
+        }
+
+        .navbar button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* 지도 컨테이너 및 메인 컨테이너 스타일링 */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* 컨테이너 내의 텍스트 가운데 정렬 */
+        }
+
+        .map-container {
+            margin: 30px auto; /* 수평 가운데 정렬 */
+            width: 600px; /* 원하는 지도 너비 */
+            height: 400px; /* 원하는 지도 높이 */
+            border: 1px solid #ccc;
+            background-color: #eaeaea; /* 지도 로딩 전 백그라운드 색상 */
+        }
+
+        /* 검색 바 스타일링 */
+        .search-bar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center; /* 검색 바의 가운데 정렬 */
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<div id="map" style="width:100%;height:400px;"></div>
+
+<div class="navbar">
+    <div class="user-info">안녕하세요, 사용자님!</div>
+    <button onclick="logout()">로그아웃</button>
+</div>
+
+<div class="container">
+    <h1>2024 VCmap 카카오 지도 및 검색 기능</h1>
+
+    <div class="map-container" id="map"></div> <!-- 카카오 지도 컨테이너 -->
+
+    <!-- 검색 바 -->
+    <div class="search-bar">
+        <input type="text" placeholder="검색어 입력">
+        <button>검색</button>
+    </div>
+</div>
 
 <script>
-var mapOptions = {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 10
-};
+    // 로그아웃 기능
+    function logout() {
+        alert("로그아웃 되었습니다!");
+    }
 
-var map = new naver.maps.Map('map', mapOptions);
+    // 카카오 지도 초기화
+    function initMap() {
+        var container = document.getElementById("map");
+        var options = {
+            center: new kakao.maps.LatLng(37.5665, 126.9780), // 서울의 중심 좌표
+            level: 3 // 확대 수준
+        };
+
+        var map = new kakao.maps.Map(container, options); // 지도 생성
+    }
+
+    // 페이지 로드 시 지도 초기화
+    window.onload = function() {
+        initMap();
+    };
 </script>
+
 </body>
 </html>
