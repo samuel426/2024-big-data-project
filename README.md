@@ -1,3 +1,4 @@
+
 # Big-Data-Project
 
 빅데이터 프로젝트 - vcmap
@@ -14,4 +15,7 @@
 - **Database**: PostgreSQL
 - **Hosting**: Express.JS
 - **Visualization**: React.JS
+
+/usr/local/bin/chromedriver-linux64/chromedriver
+
 
